@@ -1,15 +1,18 @@
 const express = require('express');
+const connectDB = require('./config/database');  // Import MongoDB connection
+require('dotenv').config();
+
 const app = express();
 
-// Middleware to parse JSON requests
+// Connect to MongoDB
+connectDB();
+
 app.use(express.json());
 
-// Test route
 app.get('/', (req, res) => {
     res.send('Tenant-Landlord Legal AI Backend is Running!');
 });
 
-// Start the server
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
