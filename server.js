@@ -9,6 +9,9 @@ connectDB();
 
 app.use(express.json());
 
+app.use('/api/laws', require('./routes/lawRoutes'));
+
+
 app.get('/', (req, res) => {
     res.send('Tenant-Landlord Legal AI Backend is Running!');
 });
